@@ -32,7 +32,7 @@ input[type="text"]{
      text-align: center;
      font-weight:bolder;
 }
-#error,#errorFood ,#errorRent ,#errorCloth,#errorSave{
+#error,#errorFood ,#errorRent ,#errorCloth,#errorSave,#errorMuch{
      display:none;
      border: 1px solid red;
      border-radius: 15px;

@@ -30,7 +30,7 @@
                const clothValue = expensesInputNumber('cloth-value');
 
                //error message
-               if(incomeValue < foodValue){
+                if(incomeValue < foodValue){
                     document.getElementById("errorFood").style.display = "block";
                     document.getElementById("errorRent").style.display = "none";
                     document.getElementById("errorCloth").style.display = "none";
@@ -42,14 +42,24 @@
                     document.getElementById("errorFood").style.display = "none";
                     document.getElementById("errorRent").style.display = "none";
                     document.getElementById("errorCloth").style.display = "block";
-               }
+               } 
 
                const totalExpenses =  foodValue + rentValue + clothValue;
                const balance = incomeValue - totalExpenses;
-         
-         document.getElementById('balance').innerText = balance;
-         document.getElementById('total-expense').innerText = totalExpenses ;
-        return totalExpenses;
+              
+               if(totalExpenses > incomeValue){
+                    document.getElementById("errorFood").style.display = "none";
+                    document.getElementById("errorRent").style.display = "none";
+                    document.getElementById("errorCloth").style.display = "none";
+                    document.getElementById("errorMuch").style.display = "block";
+               
+               document.getElementById('balance').innerText = '00';
+               document.getElementById('total-expense').innerText = '00' 
+               }else{
+                    document.getElementById('balance').innerText = balance;
+                    document.getElementById('total-expense').innerText = totalExpenses ;
+               }
+               return totalExpenses;
      }
 
      document.getElementById('calculate-btn').addEventListener('click', function() {
