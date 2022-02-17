@@ -1,9 +1,10 @@
      function getInputNumber(id) {
+         
           const input = document.getElementById(id).value;
           const inputValue = parseFloat(input);
-          if(inputValue != 'number' && inputValue < 0 && inputValue == '') {
-               alert('You should enter a number')
-          }
+          if(isNaN(inputValue)){
+               document.getElementById("error").style.display = "block";
+           }
           document.getElementById(id).value = '';
           return inputValue;
      }
@@ -21,22 +22,23 @@
          }else if(incomeValue < clothValue){
           alert('Cloths expense never more than income value')
          }
-        const totalExpenses =  foodValue + rentValue + clothValue;
-        const balance = incomeValue - totalExpenses;
-
+         const totalExpenses =  foodValue + rentValue + clothValue;
+         const balance = incomeValue - totalExpenses;
+        
          document.getElementById('balance').innerText = balance;
          document.getElementById('total-expense').innerText = totalExpenses ;
       })   
-
+      
 
       // saving and remaining balance
-      document.getElementById('save-btn').addEventListener('click', function() {
+         document.getElementById('save-btn').addEventListener('click', function() {
          const saveValue = getInputNumber('save-value');
          const saving = balance.innerText;
          const savingNumber = parseFloat(saving);
          const savingRate =  savingNumber / 100;
          const savingAmount = savingRate * saveValue;
          const remainingBalance = savingNumber - savingAmount;
+
        
          document.getElementById('saving-amount').innerText = Math.round(savingAmount) ;
          document.getElementById('remaining-balance').innerText = Math.round(remainingBalance) ;

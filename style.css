@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap");
 body {
   font-family: "Poppins", sans-serif;
-  background-color: #3f3976!important;
+  /* background-color: #3f3976!important; */
 }
 
 .btn-custom{
@@ -25,10 +25,17 @@ backdrop-filter: blur(2.1px);
 border: 1px solid rgba(255, 255, 255, 0.87);
 }
 input[type="text"]{
-     background-color:#3d4153;
+     background-color:#c5c1c1;
      width:30%;
      margin:0 auto;
-     color:#c5c1c1;
+     color:;
      text-align: center;
      font-weight:bolder;
+}
+#error{
+     display:none;
+}
+label{
+     width:30%;
+     display:inline-block;
 }
