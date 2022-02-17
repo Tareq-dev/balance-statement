@@ -46,7 +46,7 @@
           // saving and remaining balance
           document.getElementById('save-btn').addEventListener('click', function() {
           const totalExpense = document.getElementById('total-expense').innerText;
-          const totalExpensesNum = parseFloat(totalExpense);
+          const totalExpensesNumber = parseFloat(totalExpense);
 
           const balance = document.getElementById('balance').innerText;
           const balanceNumber = parseFloat(balance);
@@ -57,7 +57,7 @@
           const savingRate =  incomeValue / 100;
           const savingAmount = savingRate * saveValue;
 
-          const remaining =  totalExpensesNum + savingAmount;
+          const remaining =  totalExpensesNumber + savingAmount;
           const remainingBalance  = incomeValue - remaining;
                 //error message
           if(balanceNumber<savingAmount){
