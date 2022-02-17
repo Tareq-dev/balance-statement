@@ -32,8 +32,11 @@ input[type="text"]{
      text-align: center;
      font-weight:bolder;
 }
-#error{
+#error,#errorFood ,#errorRent ,#errorCloth,#errorSave{
      display:none;
+     border: 1px solid red;
+     border-radius: 15px;
+     color:black;
 }
 label{
      width:30%;

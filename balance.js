@@ -1,48 +1,83 @@
-     function getInputNumber(id) {
-         
+     //function for getting Expense Number
+     function expensesInputNumber(id) {
           const input = document.getElementById(id).value;
           const inputValue = parseFloat(input);
-          if(isNaN(inputValue)){
+          //error message
+               if (document.getElementById(id).value == "") {
+                    document.getElementById("error").style.display = "block";
+               }
+               else if(typeof inputValue == 'number' && inputValue < 0) {
                document.getElementById("error").style.display = "block";
-           }
+               }
           document.getElementById(id).value = '';
           return inputValue;
      }
-     // calculate income and expense
-     document.getElementById('calculate-btn').addEventListener('click', function() {
-         const incomeValue = getInputNumber('income-value');
-         const foodValue = getInputNumber('food-value');
-         const rentValue = getInputNumber('rent-value');
-         const clothValue = getInputNumber('cloth-value');
+      //function for getting Income Number
+     function IncomeInputNumber(id) {
+          const input = document.getElementById(id).value;
+          const inputValue = parseFloat(input);
+          //error message
+          if(typeof inputValue == 'number' && inputValue < 0){
+               document.getElementById("error").style.display = "block";
+               }
+          return inputValue;
+     }
+           // calculate Expense
+          function calculateExpense(){
+               const incomeValue = IncomeInputNumber('income-value');
+               const foodValue = expensesInputNumber('food-value');
+               const rentValue = expensesInputNumber('rent-value');
+               const clothValue = expensesInputNumber('cloth-value');
 
-         if(incomeValue < foodValue){
-          alert('Food expense never more than income value');
-         }else if(incomeValue < rentValue){
-          alert('Rent expense never more than income value')
-         }else if(incomeValue < clothValue){
-          alert('Cloths expense never more than income value')
-         }
-         const totalExpenses =  foodValue + rentValue + clothValue;
-         const balance = incomeValue - totalExpenses;
-        
+               //error message
+               if(incomeValue < foodValue){
+                    document.getElementById("errorFood").style.display = "block";
+                    document.getElementById("errorRent").style.display = "none";
+                    document.getElementById("errorCloth").style.display = "none";
+               }else if(incomeValue < rentValue){
+                    document.getElementById("errorFood").style.display = "none";
+                    document.getElementById("errorRent").style.display = "block";
+                    document.getElementById("errorCloth").style.display = "none";
+               }else if(incomeValue < clothValue){
+                    document.getElementById("errorFood").style.display = "none";
+                    document.getElementById("errorRent").style.display = "none";
+                    document.getElementById("errorCloth").style.display = "block";
+               }
+
+               const totalExpenses =  foodValue + rentValue + clothValue;
+               const balance = incomeValue - totalExpenses;
+         
          document.getElementById('balance').innerText = balance;
          document.getElementById('total-expense').innerText = totalExpenses ;
-      })   
-      
+        return totalExpenses;
+     }
 
+     document.getElementById('calculate-btn').addEventListener('click', function() {
+          calculateExpense();
+     })
       // saving and remaining balance
-         document.getElementById('save-btn').addEventListener('click', function() {
-         const saveValue = getInputNumber('save-value');
-         const saving = balance.innerText;
-         const savingNumber = parseFloat(saving);
-         const savingRate =  savingNumber / 100;
-         const savingAmount = savingRate * saveValue;
-         const remainingBalance = savingNumber - savingAmount;
+      document.getElementById('save-btn').addEventListener('click', function() {
+          const totalExpense = document.getElementById('total-expense').innerText;
+          const totalExpensesNum = parseFloat(totalExpense);
 
-       
-         document.getElementById('saving-amount').innerText = Math.round(savingAmount) ;
-         document.getElementById('remaining-balance').innerText = Math.round(remainingBalance) ;
+          const balance = document.getElementById('balance').innerText;
+          const balanceNumber = parseFloat(balance);
+
+          const incomeValue = IncomeInputNumber('income-value');
+          const saveValue = expensesInputNumber('save-value');
+
+          const savingRate =  incomeValue / 100;
+          const savingAmount = savingRate * saveValue;
+
+          const remaining =  totalExpensesNum + savingAmount;
+          const remainingBalance  = incomeValue - remaining;
+       //error message
+          if(balanceNumber<savingAmount){
+               document.getElementById("errorSave").style.display = "block";
+               document.getElementById('saving-amount').innerText ='0';
+               document.getElementById('remaining-balance').innerText = '0';
+          }else{
+               document.getElementById('saving-amount').innerText = Math.round(savingAmount) ;
+               document.getElementById('remaining-balance').innerText = Math.round(remainingBalance) ;
+          }
       })
-         
-
-
