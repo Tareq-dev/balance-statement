@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap");
 body {
   font-family: "Poppins", sans-serif;
-  /* background-color: #3f3976!important; */
 }
 
 .btn-custom{
@@ -15,13 +14,10 @@ body {
 .btn-custom:hover{
      background-color:#57bef9;
 }
-.glass-shadow{
-   /* From https://css.glass */
-background: rgba(255, 255, 255, 0.12);
+.custom-shadow{
 border-radius: 16px;
 box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 backdrop-filter: blur(2.1px);
--webkit-backdrop-filter: blur(2.1px);
 border: 1px solid rgba(255, 255, 255, 0.87);
 }
 input[type="text"]{

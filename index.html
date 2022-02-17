@@ -16,14 +16,12 @@
             <div class="col-md-6 col-12 mb-3">
                <img style="width:300px; height:470px;" class="rounded-3" src="./images/financial-transaction.jpg" alt="">
             </div>
-
                      <!-- Calculation section -->
-
             <div style="width:400px;" class="col-md-6 col-12 mb-5 ">
-               <div class="glass-shadow flex justify-content-around">
+               <div class="custom-shadow flex justify-content-around">
                     <h6>Income</h6>
                     <label class="mt-2">income :</label>
-                    <input id="income-value" class="px-2 border rounded-3 ms-1 mb-2 align-left" type="text">
+                    <input id="income-value" class="px-2 border rounded-3 ms-1 mb-2 align-left" required type="text">
                     <h6>Expenses</h6>
                     <label class="mt-2">Food :</label>
                     <input id="food-value" class="px-2 border rounded-3 ms-1 align-left" type="text">
@@ -38,10 +36,7 @@
                     <br>
                     <div class="d-flex justify-content-center">
                     <p id="error" class=" mt-2 px-1">You should enter a number</p>
-                    <p id="errorFood" class="mt-2 px-1">Food expense can not more than income value</p>
-                    <p id="errorRent" class="mt-2 px-1"> px-1Rent expense can not more than income value</p>
-                    <p id="errorCloth" class="mt-2 px-1">Cloths expense can not more than income value</p>
-                    <p id="errorMuch" class="mt-2 px-1">Expenses expense can not more than income value</p>
+                    <p id="errorMuch" class="mt-2 px-1">You can not expense more than your income</p>
                     </div>
                     <div class="border m-2 rounded">
                     <h6 class="mt-1">Total Expenses : <span id="total-expense">00</span></h6>
@@ -60,9 +55,6 @@
           </div>
          </div> 
     </section>  
-     <script>
-         
-     </script>
      <script src="balance.js"></script>
 </body>
 </html>
