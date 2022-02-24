@@ -5,6 +5,7 @@
           //error message
           if(isNaN(inputValue) || inputValue < 0) {
                 document.getElementById("error").style.display = "block";
+                return 0;
           }
           document.getElementById(id).value = '';
           return inputValue;
@@ -17,12 +18,14 @@
           //error message
           if(isNaN(inputValue) || inputValue < 0) {
                document.getElementById("error").style.display = "block";
+               return 0;
           }
           return inputValue;
      }
            // calculate Expense
           document.getElementById('calculate-btn').addEventListener('click', function() {
             
+               
                const incomeValue = IncomeInputNumber('income-value');
                const foodValue = expensesInputNumber('food-value');
                const rentValue = expensesInputNumber('rent-value');
@@ -31,6 +34,8 @@
                const totalExpenses =  foodValue + rentValue + clothValue;
                const balance = incomeValue - totalExpenses;
              
+          
+
                if(totalExpenses > incomeValue){
                document.getElementById("errorMuch").style.display = "block";
                
